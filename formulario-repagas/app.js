@@ -330,10 +330,8 @@ function getManualEquipos(zone) {
 
 let catalogoLoading = false;
 
-const API_URL = "https://web-production-0a9ac.up.railway.app";
-
 function getBaseUrl() {
-  return API_URL;
+  return "/api";
 }
 
 function updateCatalogoStatus(msg, isError) {
