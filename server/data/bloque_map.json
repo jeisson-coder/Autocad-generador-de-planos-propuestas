@@ -1,0 +1,664 @@
+{
+  "CG-720-P": {
+    "entities": 561,
+    "source": "BAR LA PALAPA FINAL.dxf",
+    "extmin": [
+      0.0,
+      -0.77
+    ],
+    "extmax": [
+      400.0,
+      750.0
+    ],
+    "width_mm": 400.0,
+    "depth_mm": 750.77
+  },
+  "FTG-71-P": {
+    "entities": 95,
+    "source": "BAR LA PALAPA FINAL.dxf",
+    "extmin": [
+      0.0,
+      0.0
+    ],
+    "extmax": [
+      400.0,
+      750.0
+    ],
+    "width_mm": 400.0,
+    "depth_mm": 750.0
+  },
+  "FE-8": {
+    "entities": 315,
+    "source": "BAR LA PALAPA FINAL.dxf",
+    "extmin": [
+      0.0,
+      -46.0
+    ],
+    "extmax": [
+      300.0,
+      550.0
+    ],
+    "width_mm": 300.0,
+    "depth_mm": 596.0
+  },
+  "MRG-250": {
+    "entities": 10,
+    "source": "BAR LA PALAPA FINAL.dxf",
+    "extmin": [
+      0.0,
+      0.0
+    ],
+    "extmax": [
+      2245.0,
+      725.0
+    ],
+    "width_mm": 2245.0,
+    "depth_mm": 725.0
+  },
+  "SMPG-225": {
+    "entities": 10,
+    "source": "BAR LA PALAPA FINAL.dxf",
+    "extmin": [
+      0.0,
+      0.0
+    ],
+    "extmax": [
+      2242.0,
+      725.0
+    ],
+    "width_mm": 2242.0,
+    "depth_mm": 725.0
+  },
+  "LAVAVAJILLAS": {
+    "entities": 53,
+    "source": "BAR LA PALAPA FINAL.dxf",
+    "extmin": [
+      1592.72,
+      132.24
+    ],
+    "extmax": [
+      2191.74,
+      904.82
+    ],
+    "width_mm": 599.02,
+    "depth_mm": 772.58
+  },
+  "MN-49-P": {
+    "entities": 72,
+    "source": "CHINO SALAZAR FINAL.dxf",
+    "extmin": [
+      0.0,
+      -0.0
+    ],
+    "extmax": [
+      400.0,
+      900.0
+    ],
+    "width_mm": 400.0,
+    "depth_mm": 900.0
+  },
+  "FTG-92-P": {
+    "entities": 168,
+    "source": "CHINO SALAZAR FINAL.dxf",
+    "extmin": [
+      -0.0,
+      -5.1
+    ],
+    "extmax": [
+      800.0,
+      900.0
+    ],
+    "width_mm": 800.0,
+    "depth_mm": 905.1
+  },
+  "CG-740-P": {
+    "entities": 1037,
+    "source": "CHINO SALAZAR FINAL.dxf",
+    "extmin": [
+      0.0,
+      -1.1
+    ],
+    "extmax": [
+      800.0,
+      750.0
+    ],
+    "width_mm": 800.0,
+    "depth_mm": 751.1
+  },
+  "CG-940-P": {
+    "entities": 1078,
+    "source": "CHINO SALAZAR FINAL.dxf",
+    "extmin": [
+      0.0,
+      -10.0
+    ],
+    "extmax": [
+      800.0,
+      900.1
+    ],
+    "width_mm": 800.0,
+    "depth_mm": 910.1
+  },
+  "MRG-157": {
+    "entities": 10,
+    "source": "CHINO SALAZAR FINAL.dxf",
+    "extmin": [
+      0.0,
+      0.0
+    ],
+    "extmax": [
+      0.0,
+      0.0
+    ],
+    "width_mm": 0.0,
+    "depth_mm": 0.0
+  },
+  "CG-961H-P": {
+    "entities": 4590,
+    "source": "HOTEL CABANA FINAL.dxf",
+    "extmin": [
+      0.0,
+      -59.0
+    ],
+    "extmax": [
+      1200.0,
+      900.0
+    ],
+    "width_mm": 1200.0,
+    "depth_mm": 959.0
+  },
+  "FG-159T-P": {
+    "entities": 290,
+    "source": "HOTEL CABANA FINAL.dxf",
+    "extmin": [
+      0.0,
+      -58.54
+    ],
+    "extmax": [
+      400.0,
+      899.9
+    ],
+    "width_mm": 400.0,
+    "depth_mm": 958.44
+  },
+  "HP-14": {
+    "entities": 80,
+    "source": "HOTEL CABANA FINAL.dxf",
+    "extmin": [
+      0.0,
+      0.0
+    ],
+    "extmax": [
+      550.0,
+      610.0
+    ],
+    "width_mm": 550.0,
+    "depth_mm": 610.0
+  },
+  "MRG-207": {
+    "entities": 10,
+    "source": "HOTEL CABANA FINAL.dxf",
+    "extmin": [
+      0.0,
+      0.0
+    ],
+    "extmax": [
+      0.0,
+      0.0
+    ],
+    "width_mm": 0.0,
+    "depth_mm": 0.0
+  },
+  "S-250": {
+    "entities": 140,
+    "source": "HOTEL PUNTA UMBRIA FINAL.dxf",
+    "extmin": [
+      -25.0,
+      -10.0
+    ],
+    "extmax": [
+      590.0,
+      410.0
+    ],
+    "width_mm": 615.0,
+    "depth_mm": 420.0
+  },
+  "MG-9150": {
+    "entities": 466,
+    "source": "HOTEL PUNTA UMBRIA FINAL.dxf",
+    "extmin": [
+      0.0,
+      -75.8
+    ],
+    "extmax": [
+      800.0,
+      900.0
+    ],
+    "width_mm": 800.0,
+    "depth_mm": 975.8
+  },
+  "SB-980-P": {
+    "entities": 175,
+    "source": "HOTEL PUNTA UMBRIA FINAL.dxf",
+    "extmin": [
+      -1.0,
+      -127.54
+    ],
+    "extmax": [
+      800.0,
+      900.0
+    ],
+    "width_mm": 801.0,
+    "depth_mm": 1027.54
+  },
+  "LAVAFREG": {
+    "entities": 66,
+    "source": "HOTEL PUNTA UMBRIA FINAL.dxf",
+    "extmin": [
+      0.0,
+      0.0
+    ],
+    "extmax": [
+      500.0,
+      70.0
+    ],
+    "width_mm": 500.0,
+    "depth_mm": 70.0
+  },
+  "FTG-72-P": {
+    "entities": 159,
+    "source": "HOTEL TERUEL FINAL.dxf",
+    "extmin": [
+      0.0,
+      -0.0
+    ],
+    "extmax": [
+      800.0,
+      750.0
+    ],
+    "width_mm": 800.0,
+    "depth_mm": 750.0
+  },
+  "MN-87-P": {
+    "entities": 128,
+    "source": "HOTEL TERUEL FINAL.dxf",
+    "extmin": [
+      0.0,
+      -0.0
+    ],
+    "extmax": [
+      800.0,
+      750.0
+    ],
+    "width_mm": 800.0,
+    "depth_mm": 750.0
+  },
+  "MN-47-P": {
+    "entities": 72,
+    "source": "HOTEL TERUEL FINAL.dxf",
+    "extmin": [
+      0.0,
+      -0.0
+    ],
+    "extmax": [
+      400.0,
+      750.0
+    ],
+    "width_mm": 400.0,
+    "depth_mm": 750.0
+  },
+  "MN-27": {
+    "entities": 48,
+    "source": "HOTEL TERUEL FINAL.dxf",
+    "extmin": [
+      0.0,
+      -0.0
+    ],
+    "extmax": [
+      200.5,
+      750.0
+    ],
+    "width_mm": 200.5,
+    "depth_mm": 750.0
+  },
+  "CG-760-P": {
+    "entities": 1572,
+    "source": "IES ALVARO FALOMIR FINAL.dxf",
+    "extmin": [
+      0.0,
+      -1.77
+    ],
+    "extmax": [
+      1200.0,
+      750.0
+    ],
+    "width_mm": 1200.0,
+    "depth_mm": 751.77
+  },
+  "FG-307-P": {
+    "entities": 568,
+    "source": "IES ALVARO FALOMIR FINAL.dxf",
+    "extmin": [
+      0.0,
+      -55.1
+    ],
+    "extmax": [
+      800.0,
+      750.0
+    ],
+    "width_mm": 800.0,
+    "depth_mm": 805.1
+  },
+  "MG-760": {
+    "entities": 540,
+    "source": "IES ALVARO FALOMIR FINAL.dxf",
+    "extmin": [
+      0.0,
+      -75.8
+    ],
+    "extmax": [
+      801.0,
+      750.76
+    ],
+    "width_mm": 801.0,
+    "depth_mm": 826.56
+  },
+  "CPG-71-P": {
+    "entities": 485,
+    "source": "PONT DE FUSTA FINAL.dxf",
+    "extmin": [
+      -0.0,
+      -55.1
+    ],
+    "extmax": [
+      400.0,
+      750.0
+    ],
+    "width_mm": 400.0,
+    "depth_mm": 805.1
+  },
+  "lavautensilios_dwg_A$C739F39D4-5717042-0_0_ P_ baja_ Cocina": {
+    "entities": 40,
+    "source": "RESIDENCIA SAN PEDRO DEL PINATAR FINAL.dxf",
+    "extmin": [
+      0.0,
+      0.0
+    ],
+    "extmax": [
+      85.0,
+      87.36
+    ],
+    "width_mm": 85.0,
+    "depth_mm": 87.36
+  },
+  "MN-89-P": {
+    "entities": 128,
+    "source": "RESIDENCIA SAN PEDRO DEL PINATAR FINAL.dxf",
+    "extmin": [
+      0.0,
+      -0.0
+    ],
+    "extmax": [
+      800.0,
+      900.0
+    ],
+    "width_mm": 800.0,
+    "depth_mm": 900.0
+  },
+  "Lavado": {
+    "entities": 113,
+    "source": "RTE ARGENTINO FINAL.dxf",
+    "extmin": [
+      -2.1,
+      0.0
+    ],
+    "extmax": [
+      0.0,
+      0.82
+    ],
+    "width_mm": 2.1,
+    "depth_mm": 0.82
+  },
+  "Horno 1": {
+    "entities": 65,
+    "source": "RTE ARGENTINO FINAL.dxf",
+    "extmin": [
+      491.75,
+      30.75
+    ],
+    "extmax": [
+      492.68,
+      31.72
+    ],
+    "width_mm": 0.93,
+    "depth_mm": 0.98
+  },
+  "CG-961-P": {
+    "entities": 1591,
+    "source": "RTE ARGENTINO FINAL.dxf",
+    "extmin": [
+      0.0,
+      -52.3
+    ],
+    "extmax": [
+      1200.0,
+      900.0
+    ],
+    "width_mm": 1200.0,
+    "depth_mm": 952.3
+  },
+  "FTG-91M-P": {
+    "entities": 95,
+    "source": "RTE ARGENTINO FINAL.dxf",
+    "extmin": [
+      -0.0,
+      0.0
+    ],
+    "extmax": [
+      400.0,
+      900.0
+    ],
+    "width_mm": 400.0,
+    "depth_mm": 900.0
+  },
+  "CG-960-P": {
+    "entities": 1563,
+    "source": "RTE ARGENTINO FINAL.dxf",
+    "extmin": [
+      0.0,
+      -10.1
+    ],
+    "extmax": [
+      1200.0,
+      900.0
+    ],
+    "width_mm": 1200.0,
+    "depth_mm": 910.1
+  },
+  "SE1": {
+    "entities": 276,
+    "source": "vistas snack series.dxf",
+    "extmin": [
+      408.08,
+      -25.02
+    ],
+    "extmax": [
+      483.87,
+      177.06
+    ],
+    "width_mm": 75.79,
+    "depth_mm": 202.08
+  },
+  "SE2": {
+    "entities": 295,
+    "source": "vistas snack series.dxf",
+    "extmin": [
+      324.0,
+      -119.21
+    ],
+    "extmax": [
+      393.8,
+      -43.42
+    ],
+    "width_mm": 69.8,
+    "depth_mm": 75.78
+  },
+  "SE3": {
+    "entities": 851,
+    "source": "vistas snack series.dxf",
+    "extmin": [
+      645.56,
+      -22.62
+    ],
+    "extmax": [
+      715.36,
+      179.46
+    ],
+    "width_mm": 69.8,
+    "depth_mm": 202.08
+  },
+  "SE4": {
+    "entities": 384,
+    "source": "vistas snack series.dxf",
+    "extmin": [
+      735.41,
+      -22.62
+    ],
+    "extmax": [
+      811.2,
+      179.46
+    ],
+    "width_mm": 75.79,
+    "depth_mm": 202.08
+  },
+  "SE5": {
+    "entities": 305,
+    "source": "vistas snack series.dxf",
+    "extmin": [
+      645.56,
+      -119.32
+    ],
+    "extmax": [
+      715.36,
+      -43.54
+    ],
+    "width_mm": 69.8,
+    "depth_mm": 75.79
+  },
+  "BARG-71-PLANTA": {
+    "entities": 1396,
+    "source": "BAR LA PALAPA FINAL.dxf",
+    "extmin": [
+      0.0,
+      -97.6
+    ],
+    "extmax": [
+      400.0,
+      750.0
+    ],
+    "width_mm": 400.0,
+    "depth_mm": 847.6,
+    "_note": "Wrapper: references sub-block BARG-71-P"
+  },
+  "GS-83": {
+    "entities": 13,
+    "source": "BAR LA PALAPA FINAL.dxf",
+    "extmin": [
+      0.0,
+      0.0
+    ],
+    "extmax": [
+      377.25,
+      747.36
+    ],
+    "width_mm": 377.25,
+    "depth_mm": 747.36
+  },
+  "ARMARIO 1": {
+    "entities": 60,
+    "source": "BAR LA PALAPA FINAL.dxf",
+    "extmin": [
+      0.0,
+      0.0
+    ],
+    "extmax": [
+      740.0,
+      911.0
+    ],
+    "width_mm": 740.0,
+    "depth_mm": 911.0,
+    "_note": "Core footprint only (excl annotation noise)"
+  },
+  "ARMARIO 2": {
+    "entities": 111,
+    "source": "BAR LA PALAPA FINAL.dxf",
+    "extmin": [
+      0.0,
+      0.0
+    ],
+    "extmax": [
+      740.0,
+      911.0
+    ],
+    "width_mm": 740.0,
+    "depth_mm": 911.0,
+    "_note": "Core footprint only (excl mirrored annotation noise)"
+  },
+  "ARMARIO_1_700": {
+    "entities": 69,
+    "source": "BAR LA PALAPA FINAL.dxf",
+    "extmin": [
+      0.0,
+      -54.06
+    ],
+    "extmax": [
+      740.0,
+      733.0
+    ],
+    "width_mm": 740.0,
+    "depth_mm": 787.06
+  },
+  "SALIDA_700": {
+    "entities": 31,
+    "source": "BAR LA PALAPA FINAL.dxf",
+    "extmin": [
+      0.0,
+      -36.31
+    ],
+    "extmax": [
+      700.0,
+      750.0
+    ],
+    "width_mm": 700.0,
+    "depth_mm": 786.31
+  },
+  "B-2000": {
+    "entities": 21,
+    "source": "BAR LA PALAPA FINAL.dxf",
+    "extmin": [
+      0.0,
+      0.0
+    ],
+    "extmax": [
+      2000.0,
+      550.0
+    ],
+    "width_mm": 2000.0,
+    "depth_mm": 550.0
+  },
+  "J-6-2": {
+    "entities": 28,
+    "source": "BAR LA PALAPA FINAL.dxf",
+    "extmin": [
+      0.0,
+      0.0
+    ],
+    "extmax": [
+      508.0,
+      393.0
+    ],
+    "width_mm": 508.0,
+    "depth_mm": 393.0,
+    "_note": "Core footprint only (excl gas connection lines at -1238)"
+  }
+}

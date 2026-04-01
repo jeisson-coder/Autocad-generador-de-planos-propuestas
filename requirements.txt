@@ -1,0 +1,41 @@
+# RepagasConcept - Backend dependencies
+# pip install -r requirements.txt
+
+# Web framework
+fastapi>=0.110.0
+uvicorn>=0.27.0
+python-multipart>=0.0.9
+
+# DXF processing
+ezdxf>=1.3.0
+
+# PDF generation
+fpdf2>=2.8.0
+PyMuPDF>=1.24.0
+
+# Database
+psycopg2-binary>=2.9.9
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+
+# LLM (Gemini + OpenRouter)
+langchain>=0.2.0
+langchain-google-genai>=2.0.0
+langchain-openai>=0.2.0
+langchain-core>=0.2.0
+google-generativeai>=0.7.0
+
+# RAG document processing
+PyPDF2>=3.0.0
+python-pptx>=1.0.0
+python-docx>=1.0.0
+
+# Excel import
+openpyxl>=3.1.0
+
+# Image processing
+Pillow>=10.0.0
+matplotlib>=3.8.0
+
+# Environment
+python-dotenv>=1.0.0

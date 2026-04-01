@@ -1,0 +1,2090 @@
+{
+  "version": "1.0",
+  "generated": "2026-03-25",
+  "descripcion": "Patrones de layout extraidos de disenos profesionales Repagas",
+  "holdout": "BAR LA PALAPA (no incluido, usado para testing)",
+  "patrones": [
+    {
+      "id": "rte_argentino",
+      "nombre": "RTE ARGENTINO",
+      "tipo_negocio": "restaurante",
+      "calidad": "alta",
+      "cocina": {
+        "width_mm": 13093,
+        "depth_mm": 7084,
+        "area_m2": 92.7,
+        "aspect_ratio": 1.85,
+        "dominant_angle": 0.0,
+        "n_paredes_usadas": 4,
+        "paredes_usadas": [
+          "east",
+          "north",
+          "south",
+          "west"
+        ]
+      },
+      "equipos_total": 14,
+      "equipos_por_zona": {
+        "lavado": 3,
+        "coccion": 6,
+        "preparacion": 2,
+        "frio": 1,
+        "horno": 2
+      },
+      "distribucion_paredes": {
+        "north": {
+          "zona_principal": "lavado",
+          "equipos": [
+            {
+              "tipo": "mesa_salida",
+              "modelo_ref": "SALIDA_1100",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "prelavado",
+              "modelo_ref": "PRELAVADO_1100_IQDA",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "modulo_cook",
+              "modelo_ref": "COOK",
+              "zona": "coccion"
+            }
+          ],
+          "n_equipos": 3,
+          "descripcion": "lavado (mesa_salida, prelavado, modulo_cook)"
+        },
+        "south": {
+          "zona_principal": "coccion",
+          "equipos": [
+            {
+              "tipo": "lavavajillas_capota",
+              "modelo_ref": "GS-83",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "barbacoa_gas",
+              "modelo_ref": "BARG-92-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "barbacoa_gas",
+              "modelo_ref": "BARG-92-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fry_top_gas",
+              "modelo_ref": "FTG-91-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fogon_gas",
+              "modelo_ref": "FG-309T-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "soporte_mural",
+              "modelo_ref": "SMPG-225",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "cocina_gas",
+              "modelo_ref": "CG-960-PLANTA",
+              "zona": "coccion"
+            }
+          ],
+          "n_equipos": 7,
+          "descripcion": "coccion (lavavajillas_capota, barbacoa_gas, fry_top_gas, fogon_gas)"
+        },
+        "east": {
+          "zona_principal": "horno",
+          "equipos": [
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "horno_conveccion",
+              "modelo_ref": "ATG-600-APO-ANPO",
+              "zona": "horno"
+            },
+            {
+              "tipo": "horno_conveccion",
+              "modelo_ref": "ATG-600-APO-ANPO",
+              "zona": "horno"
+            }
+          ],
+          "n_equipos": 3,
+          "descripcion": "horno (camara_frigorifica, horno_conveccion)"
+        },
+        "west": {
+          "zona_principal": "preparacion",
+          "equipos": [
+            {
+              "tipo": "soporte_mural",
+              "modelo_ref": "SMPG-180",
+              "zona": "preparacion"
+            }
+          ],
+          "n_equipos": 1,
+          "descripcion": "preparacion (soporte_mural)"
+        }
+      },
+      "patron_resumen": "Coccion concentrada en pared sur (7/14 equipos, fila principal). Lavado en pared opuesta norte (3 equipos). Hornos+frio en perpendicular este (3 equipos). Pared oeste casi vacia (1 soporte). ESTRATEGIA: concentrar coccion+servicio en la pared mas larga, lavado enfrente, frio/hornos en lateral."
+    },
+    {
+      "id": "ies_alvaro_falomir",
+      "nombre": "IES ALVARO FALOMIR",
+      "tipo_negocio": "comedor_escolar",
+      "calidad": "alta",
+      "cocina": {
+        "width_mm": 19448,
+        "depth_mm": 8700,
+        "area_m2": 169.2,
+        "aspect_ratio": 2.24,
+        "dominant_angle": 0.0,
+        "n_paredes_usadas": 4,
+        "paredes_usadas": [
+          "east",
+          "north",
+          "south",
+          "west"
+        ]
+      },
+      "equipos_total": 20,
+      "equipos_por_zona": {
+        "coccion": 9,
+        "preparacion": 2,
+        "lavado": 4,
+        "horno": 3,
+        "frio": 2
+      },
+      "distribucion_paredes": {
+        "north": {
+          "zona_principal": "coccion",
+          "equipos": [
+            {
+              "tipo": "cocina_gas",
+              "modelo_ref": "CG-760-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fry_top_gas",
+              "modelo_ref": "FTG-72-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fogon_gas",
+              "modelo_ref": "FG-307-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "marmita_gas",
+              "modelo_ref": "MG-760",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "marmita",
+              "modelo_ref": "MN-47-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "soporte_mural",
+              "modelo_ref": "SMPG-180",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "lavavajillas_capota",
+              "modelo_ref": "GS-83",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "mesa_salida",
+              "modelo_ref": "SALIDA_1100",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "horno_conveccion",
+              "modelo_ref": "ATG-600-APO-ANPO",
+              "zona": "horno"
+            },
+            {
+              "tipo": "horno_conveccion",
+              "modelo_ref": "ATG-600-APO-ANPO",
+              "zona": "horno"
+            },
+            {
+              "tipo": "horno_conveccion",
+              "modelo_ref": "ATG-600-APO-ANPO",
+              "zona": "horno"
+            }
+          ],
+          "n_equipos": 11,
+          "descripcion": "coccion (cocina_gas, fry_top_gas, fogon_gas, marmita_gas)"
+        },
+        "south": {
+          "zona_principal": "coccion",
+          "equipos": [
+            {
+              "tipo": "modulo_cook",
+              "modelo_ref": "COOK",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "prelavado",
+              "modelo_ref": "PRELAVADO_1600_DCHA_ARO",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "botellero",
+              "modelo_ref": "B-1500",
+              "zona": "frio"
+            }
+          ],
+          "n_equipos": 3,
+          "descripcion": "coccion (modulo_cook, prelavado, botellero)"
+        },
+        "east": {
+          "zona_principal": "coccion",
+          "equipos": [
+            {
+              "tipo": "soporte_mural",
+              "modelo_ref": "SMPG-180",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "lavavajillas",
+              "modelo_ref": "LAVAVAJILLAS",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "botellero",
+              "modelo_ref": "B-1500",
+              "zona": "frio"
+            },
+            {
+              "tipo": "microondas",
+              "modelo_ref": "MICROONDAS RCS 511 TS",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "tostadora",
+              "modelo_ref": "TPAN-T12",
+              "zona": "coccion"
+            }
+          ],
+          "n_equipos": 5,
+          "descripcion": "coccion (soporte_mural, lavavajillas, botellero, microondas)"
+        },
+        "west": {
+          "zona_principal": "coccion",
+          "equipos": [
+            {
+              "tipo": "freidora",
+              "modelo_ref": "F-127_11",
+              "zona": "coccion"
+            }
+          ],
+          "n_equipos": 1,
+          "descripcion": "coccion (freidora)"
+        }
+      },
+      "patron_resumen": "11/20 equipos concentrados en pared norte (coccion principal). Multi-fila: coccion contra pared + servicio en segunda fila. Pared este con 5 equipos complementarios. ESTRATEGIA: concentrar en 1-2 paredes principales, multi-fila si no cabe todo en una linea."
+    },
+    {
+      "id": "hotel_teruel",
+      "nombre": "HOTEL TERUEL",
+      "tipo_negocio": "hotel",
+      "calidad": "alta",
+      "cocina": {
+        "width_mm": 13922,
+        "depth_mm": 37224,
+        "area_m2": 518.2,
+        "aspect_ratio": 2.67,
+        "dominant_angle": 30.7,
+        "n_paredes_usadas": 4,
+        "paredes_usadas": [
+          "east",
+          "north",
+          "south",
+          "west"
+        ]
+      },
+      "equipos_total": 23,
+      "equipos_por_zona": {
+        "lavado": 5,
+        "preparacion": 3,
+        "frio": 9,
+        "coccion": 5,
+        "horno": 1
+      },
+      "distribucion_paredes": {
+        "north": {
+          "zona_principal": "frio",
+          "equipos": [
+            {
+              "tipo": "soporte_mural",
+              "modelo_ref": "SMPG-180",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "armario",
+              "modelo_ref": "ARMARIO_1_700",
+              "zona": "frio"
+            },
+            {
+              "tipo": "armario",
+              "modelo_ref": "ARMARIO_1_700",
+              "zona": "frio"
+            },
+            {
+              "tipo": "armario",
+              "modelo_ref": "ARMARIO_1_700",
+              "zona": "frio"
+            },
+            {
+              "tipo": "soporte_mural",
+              "modelo_ref": "SMPG-180",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "armario",
+              "modelo_ref": "ARMARIO_1_700",
+              "zona": "frio"
+            },
+            {
+              "tipo": "armario",
+              "modelo_ref": "ARMARIO_1_700",
+              "zona": "frio"
+            }
+          ],
+          "n_equipos": 9,
+          "descripcion": "frio (soporte_mural, camara_frigorifica, armario)"
+        },
+        "south": {
+          "zona_principal": "preparacion",
+          "equipos": [
+            {
+              "tipo": "soporte_mural",
+              "modelo_ref": "SMPG-180",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "horno_gas",
+              "modelo_ref": "HG-12",
+              "zona": "horno"
+            },
+            {
+              "tipo": "lavavajillas",
+              "modelo_ref": "LAVAFREG",
+              "zona": "lavado"
+            }
+          ],
+          "n_equipos": 3,
+          "descripcion": "preparacion (soporte_mural, horno_gas, lavavajillas)"
+        },
+        "east": {
+          "zona_principal": "coccion",
+          "equipos": [
+            {
+              "tipo": "prelavado",
+              "modelo_ref": "PRELAVADO_1600_IZQDA",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "cocina_gas",
+              "modelo_ref": "CG-740-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fry_top_gas",
+              "modelo_ref": "FTG-72-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "marmita",
+              "modelo_ref": "MN-87-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "marmita",
+              "modelo_ref": "MN-27",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM800",
+              "zona": "frio"
+            },
+            {
+              "tipo": "mesa_fria",
+              "modelo_ref": "MFEI70-180",
+              "zona": "frio"
+            }
+          ],
+          "n_equipos": 7,
+          "descripcion": "coccion (prelavado, cocina_gas, fry_top_gas, marmita)"
+        },
+        "west": {
+          "zona_principal": "lavado",
+          "equipos": [
+            {
+              "tipo": "mesa_salida",
+              "modelo_ref": "SALIDA_1100",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "lavavajillas_capota",
+              "modelo_ref": "GS-83",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "freidora",
+              "modelo_ref": "FREGADERO_CON_ARO_FFAD186L",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "lavavajillas",
+              "modelo_ref": "LAVAVAJILLAS",
+              "zona": "lavado"
+            }
+          ],
+          "n_equipos": 4,
+          "descripcion": "lavado (mesa_salida, lavavajillas_capota, freidora, lavavajillas)"
+        }
+      },
+      "patron_resumen": "Hotel grande con plano rotado 30 grados. Coccion en este (7 equipos), frio en norte (9 equipos camaras). Lavado en oeste (4 equipos). ESTRATEGIA: en planos rotados, compensar angulo. Separar frio de coccion en pared opuesta."
+    },
+    {
+      "id": "pont_de_fusta",
+      "nombre": "PONT DE FUSTA",
+      "tipo_negocio": "restaurante",
+      "calidad": "media",
+      "cocina": {
+        "width_mm": 484189,
+        "depth_mm": 364828,
+        "area_m2": 176645.8,
+        "aspect_ratio": 1.33,
+        "dominant_angle": 0.0,
+        "n_paredes_usadas": 4,
+        "paredes_usadas": [
+          "east",
+          "north",
+          "south",
+          "west"
+        ]
+      },
+      "equipos_total": 27,
+      "equipos_por_zona": {
+        "lavado": 8,
+        "coccion": 8,
+        "preparacion": 4,
+        "frio": 4,
+        "otro": 2,
+        "horno": 1
+      },
+      "distribucion_paredes": {
+        "north": {
+          "zona_principal": "coccion",
+          "equipos": [
+            {
+              "tipo": "mesa_salida",
+              "modelo_ref": "SALIDA_700",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "cocina_gas",
+              "modelo_ref": "CG-940-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "marmita",
+              "modelo_ref": "MN-49-PLANTAN",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fogon_gas",
+              "modelo_ref": "FG-309T-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "soporte_mural",
+              "modelo_ref": "SMPG-180",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "freidora",
+              "modelo_ref": "F-127_11",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "mesa_salida",
+              "modelo_ref": "SALIDA_700",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "soporte_mural",
+              "modelo_ref": "SMPG-180",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "fogon_gas",
+              "modelo_ref": "FKG-77-LB",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "cocina_gas",
+              "modelo_ref": "CG-740-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "cuece_pastas_gas",
+              "modelo_ref": "CPG-71-PLANTA",
+              "zona": "coccion"
+            }
+          ],
+          "n_equipos": 11,
+          "descripcion": "coccion (mesa_salida, cocina_gas, marmita, fogon_gas)"
+        },
+        "south": {
+          "zona_principal": "frio",
+          "equipos": [
+            {
+              "tipo": "modulo_cook",
+              "modelo_ref": "COOK",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "armario_frio",
+              "modelo_ref": "ER-EF-400-SS",
+              "zona": "frio"
+            },
+            {
+              "tipo": "lavavajillas",
+              "modelo_ref": "LAVAVAJILLAS",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "soporte_mural",
+              "modelo_ref": "SMPG-180",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "armario_frio",
+              "modelo_ref": "ER-EF-400-SS",
+              "zona": "frio"
+            },
+            {
+              "tipo": "soporte_mural",
+              "modelo_ref": "SMPG-180",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "horno_gastronorm",
+              "modelo_ref": "6_GN-1-1",
+              "zona": "horno"
+            }
+          ],
+          "n_equipos": 7,
+          "descripcion": "frio (modulo_cook, armario_frio, lavavajillas, soporte_mural)"
+        },
+        "east": {
+          "zona_principal": "lavado",
+          "equipos": [
+            {
+              "tipo": "prelavado",
+              "modelo_ref": "PRELAVADO_1600_IQDA_ARO",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "armario_frio",
+              "modelo_ref": "ER-EF-400-SS",
+              "zona": "frio"
+            },
+            {
+              "tipo": "registro",
+              "modelo_ref": "CEDULA28",
+              "zona": "otro"
+            },
+            {
+              "tipo": "lavavajillas_capota",
+              "modelo_ref": "GS-83",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "lavavajillas",
+              "modelo_ref": "LAVAVAJILLAS",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "registro",
+              "modelo_ref": "CEDULA28",
+              "zona": "otro"
+            }
+          ],
+          "n_equipos": 6,
+          "descripcion": "lavado (prelavado, armario_frio, registro, lavavajillas_capota)"
+        },
+        "west": {
+          "zona_principal": "lavado",
+          "equipos": [
+            {
+              "tipo": "lavavajillas_capota",
+              "modelo_ref": "GS-83",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "prelavado",
+              "modelo_ref": "PRELAVADO_1600_IQDA_ARO",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "armario_frio",
+              "modelo_ref": "ER-EF-400-SS",
+              "zona": "frio"
+            }
+          ],
+          "n_equipos": 3,
+          "descripcion": "lavado (lavavajillas_capota, prelavado, armario_frio)"
+        }
+      },
+      "patron_resumen": "Pared east: lavado (6 equipos). Pared north: coccion (11 equipos). Pared south: frio (7 equipos). Pared west: lavado (3 equipos)."
+    },
+    {
+      "id": "la_bodeguilla",
+      "nombre": "LA BODEGUILLA",
+      "tipo_negocio": "restaurante",
+      "calidad": "media",
+      "cocina": {
+        "width_mm": 2777,
+        "depth_mm": 3282,
+        "area_m2": 9.1,
+        "aspect_ratio": 1.18,
+        "dominant_angle": 0.0,
+        "n_paredes_usadas": 4,
+        "paredes_usadas": [
+          "east",
+          "north",
+          "south",
+          "west"
+        ]
+      },
+      "equipos_total": 21,
+      "equipos_por_zona": {
+        "frio": 3,
+        "coccion": 8,
+        "lavado": 6,
+        "preparacion": 4
+      },
+      "distribucion_paredes": {
+        "north": {
+          "zona_principal": "preparacion",
+          "equipos": [
+            {
+              "tipo": "soporte_mural",
+              "modelo_ref": "SMPS-200",
+              "zona": "preparacion"
+            }
+          ],
+          "n_equipos": 1,
+          "descripcion": "preparacion (soporte_mural)"
+        },
+        "south": {
+          "zona_principal": "coccion",
+          "equipos": [
+            {
+              "tipo": "armario_frio",
+              "modelo_ref": "ER-EF-400-SS",
+              "zona": "frio"
+            },
+            {
+              "tipo": "modulo_cook",
+              "modelo_ref": "COOK",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "modulo_cook",
+              "modelo_ref": "COOK",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "soporte_mural",
+              "modelo_ref": "SMPG-180",
+              "zona": "preparacion"
+            }
+          ],
+          "n_equipos": 4,
+          "descripcion": "coccion (armario_frio, modulo_cook, soporte_mural)"
+        },
+        "east": {
+          "zona_principal": "frio",
+          "equipos": [
+            {
+              "tipo": "armario_frio",
+              "modelo_ref": "ER-EF-400-SS",
+              "zona": "frio"
+            },
+            {
+              "tipo": "mesa_trabajo",
+              "modelo_ref": "MESA_1500",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "freidora",
+              "modelo_ref": "F-127_11",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "armario_frio",
+              "modelo_ref": "ER-EF-400-SS",
+              "zona": "frio"
+            },
+            {
+              "tipo": "mesa_trabajo",
+              "modelo_ref": "MESA_1500",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "freidora",
+              "modelo_ref": "F-127_11",
+              "zona": "coccion"
+            }
+          ],
+          "n_equipos": 6,
+          "descripcion": "frio (armario_frio, mesa_trabajo, freidora)"
+        },
+        "west": {
+          "zona_principal": "lavado",
+          "equipos": [
+            {
+              "tipo": "cocina_gas",
+              "modelo_ref": "CG-720-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fry_top_gas",
+              "modelo_ref": "FTG-71-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fregadero",
+              "modelo_ref": "J-6-2",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "lavavajillas",
+              "modelo_ref": "LAVAVAJILLAS",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "lavavajillas",
+              "modelo_ref": "LAVAVAJILLAS",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "cocina_gas",
+              "modelo_ref": "CG-720-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fry_top_gas",
+              "modelo_ref": "FTG-71-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "lavavajillas",
+              "modelo_ref": "LAVAVAJILLAS",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "lavavajillas",
+              "modelo_ref": "LAVAVAJILLAS",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "fregadero",
+              "modelo_ref": "J-6",
+              "zona": "lavado"
+            }
+          ],
+          "n_equipos": 10,
+          "descripcion": "lavado (cocina_gas, fry_top_gas, fregadero, lavavajillas)"
+        }
+      },
+      "patron_resumen": "Cocina PEQUENA (2.8x3.3m). 10/21 equipos concentrados en pared oeste (lavado+coccion juntos). Multi-fila obligada por espacio reducido. Solo 1 equipo en pared norte. ESTRATEGIA: en cocinas pequenas, concentrar TODO en 1-2 paredes con multi-fila, dejar espacio para circulacion."
+    },
+    {
+      "id": "residencia_san_pedro",
+      "nombre": "RESIDENCIA SAN PEDRO",
+      "tipo_negocio": "residencia",
+      "calidad": "media",
+      "cocina": {
+        "width_mm": 6850,
+        "depth_mm": 5229,
+        "area_m2": 35.8,
+        "aspect_ratio": 1.31,
+        "dominant_angle": 11.6,
+        "n_paredes_usadas": 3,
+        "paredes_usadas": [
+          "east",
+          "north",
+          "west"
+        ]
+      },
+      "equipos_total": 26,
+      "equipos_por_zona": {
+        "horno": 2,
+        "coccion": 9,
+        "lavado": 4,
+        "frio": 10,
+        "preparacion": 1
+      },
+      "distribucion_paredes": {
+        "north": {
+          "zona_principal": "preparacion",
+          "equipos": [
+            {
+              "tipo": "cortadora",
+              "modelo_ref": "S-250",
+              "zona": "preparacion"
+            }
+          ],
+          "n_equipos": 1,
+          "descripcion": "preparacion (cortadora)"
+        },
+        "east": {
+          "zona_principal": "frio",
+          "equipos": [
+            {
+              "tipo": "plancha_gas",
+              "modelo_ref": "HPG-26-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "cocina_gas",
+              "modelo_ref": "CG-940-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "cocina_gas",
+              "modelo_ref": "CG-940-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "marmita",
+              "modelo_ref": "MN-49-PLANTAN",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "lavavajillas_capota",
+              "modelo_ref": "GS-83",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "lavavajillas_capota",
+              "modelo_ref": "GSP-45",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "armario_frio",
+              "modelo_ref": "ER-EF-400-SS",
+              "zona": "frio"
+            },
+            {
+              "tipo": "armario_frio",
+              "modelo_ref": "ER-EF-400-SS",
+              "zona": "frio"
+            },
+            {
+              "tipo": "armario_frio",
+              "modelo_ref": "ER-EF-400-SS",
+              "zona": "frio"
+            },
+            {
+              "tipo": "armario_frio",
+              "modelo_ref": "ER-EF-400-SS",
+              "zona": "frio"
+            },
+            {
+              "tipo": "armario_frio",
+              "modelo_ref": "ER-EF-400-SS",
+              "zona": "frio"
+            },
+            {
+              "tipo": "armario_frio",
+              "modelo_ref": "ER-EF-400-SS",
+              "zona": "frio"
+            },
+            {
+              "tipo": "horno_rational",
+              "modelo_ref": "ISENSOR M TIM 6K",
+              "zona": "horno"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            }
+          ],
+          "n_equipos": 17,
+          "descripcion": "frio (plancha_gas, cocina_gas, marmita, lavavajillas_capota)"
+        },
+        "west": {
+          "zona_principal": "coccion",
+          "equipos": [
+            {
+              "tipo": "abatidor",
+              "modelo_ref": "ABATIDOR 10 GN",
+              "zona": "horno"
+            },
+            {
+              "tipo": "modulo_cook",
+              "modelo_ref": "COOK",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fry_top_gas",
+              "modelo_ref": "FTG-92-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fogon_gas",
+              "modelo_ref": "FG-309T-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "marmita",
+              "modelo_ref": "MN-49-PLANTAN",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "soporte_bajo",
+              "modelo_ref": "SB-980-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "prelavado",
+              "modelo_ref": "PRELAVADO_1600_DCHA_ARO",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "mesa_salida",
+              "modelo_ref": "SALIDA_1100",
+              "zona": "lavado"
+            }
+          ],
+          "n_equipos": 8,
+          "descripcion": "coccion (abatidor, modulo_cook, fry_top_gas, fogon_gas)"
+        }
+      },
+      "patron_resumen": "Residencia con plano rotado 12 grados. 17/26 en pared este, 8 en oeste. Solo 3 paredes usadas (norte libre para acceso). Multi-fila en pared principal. ESTRATEGIA: concentrar en 2 paredes opuestas, dejar la pared de acceso libre para circulacion y servicio."
+    },
+    {
+      "id": "hotel_cabana",
+      "nombre": "HOTEL CABANA",
+      "tipo_negocio": "hotel",
+      "calidad": "media",
+      "cocina": {
+        "width_mm": 11324,
+        "depth_mm": 4104,
+        "area_m2": 46.5,
+        "aspect_ratio": 2.76,
+        "dominant_angle": 0.0,
+        "n_paredes_usadas": 4,
+        "paredes_usadas": [
+          "east",
+          "north",
+          "south",
+          "west"
+        ]
+      },
+      "equipos_total": 55,
+      "equipos_por_zona": {
+        "frio": 19,
+        "horno": 4,
+        "coccion": 16,
+        "lavado": 12,
+        "preparacion": 4
+      },
+      "distribucion_paredes": {
+        "north": {
+          "zona_principal": "frio",
+          "equipos": [
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "plancha_gas",
+              "modelo_ref": "HPG-26-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fry_top_gas",
+              "modelo_ref": "FTG-92-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "plancha_electrica",
+              "modelo_ref": "HP-14",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "puerta_camara",
+              "modelo_ref": "P0850",
+              "zona": "frio"
+            },
+            {
+              "tipo": "fregadero_industrial",
+              "modelo_ref": "PLONGE_2CUBAS",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "fregadero_industrial",
+              "modelo_ref": "PLONGE_1800",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "puerta_camara",
+              "modelo_ref": "P1200D",
+              "zona": "frio"
+            },
+            {
+              "tipo": "soporte_mural",
+              "modelo_ref": "SMPG-225",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "fogon_gas",
+              "modelo_ref": "FG-309T-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "plancha_gas",
+              "modelo_ref": "HPG-26-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fry_top_gas",
+              "modelo_ref": "FTG-92-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "plancha_electrica",
+              "modelo_ref": "HP-14",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "puerta_camara",
+              "modelo_ref": "P0850",
+              "zona": "frio"
+            },
+            {
+              "tipo": "fregadero_industrial",
+              "modelo_ref": "PLONGE_2CUBAS",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "fregadero_industrial",
+              "modelo_ref": "PLONGE_1800",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "puerta_camara",
+              "modelo_ref": "P1200D",
+              "zona": "frio"
+            },
+            {
+              "tipo": "soporte_mural",
+              "modelo_ref": "SMPG-225",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "fogon_gas",
+              "modelo_ref": "FG-309T-PLANTA",
+              "zona": "coccion"
+            }
+          ],
+          "n_equipos": 23,
+          "descripcion": "frio (camara_frigorifica, plancha_gas, fry_top_gas, plancha_electrica)"
+        },
+        "south": {
+          "zona_principal": "coccion",
+          "equipos": [
+            {
+              "tipo": "horno_gastronorm",
+              "modelo_ref": "HGIA-401",
+              "zona": "horno"
+            },
+            {
+              "tipo": "horno_gastronorm",
+              "modelo_ref": "HGIA-401",
+              "zona": "horno"
+            },
+            {
+              "tipo": "plancha_gas",
+              "modelo_ref": "HPG-26-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fogon_gas",
+              "modelo_ref": "FG-309T-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fry_top_gas",
+              "modelo_ref": "FTG-92-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "plancha_electrica",
+              "modelo_ref": "HP-14",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "lavavajillas_capota",
+              "modelo_ref": "GSP-46",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "soporte_mural",
+              "modelo_ref": "SMPS-200",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "horno_gastronorm",
+              "modelo_ref": "HGIA-401",
+              "zona": "horno"
+            },
+            {
+              "tipo": "horno_gastronorm",
+              "modelo_ref": "HGIA-401",
+              "zona": "horno"
+            },
+            {
+              "tipo": "plancha_gas",
+              "modelo_ref": "HPG-26-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fogon_gas",
+              "modelo_ref": "FG-309T-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fry_top_gas",
+              "modelo_ref": "FTG-92-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "plancha_electrica",
+              "modelo_ref": "HP-14",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "lavavajillas_capota",
+              "modelo_ref": "GSP-46",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "soporte_mural",
+              "modelo_ref": "SMPS-200",
+              "zona": "preparacion"
+            }
+          ],
+          "n_equipos": 16,
+          "descripcion": "coccion (horno_gastronorm, plancha_gas, fogon_gas, fry_top_gas)"
+        },
+        "east": {
+          "zona_principal": "frio",
+          "equipos": [
+            {
+              "tipo": "puerta_camara",
+              "modelo_ref": "P0850",
+              "zona": "frio"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "puerta_camara",
+              "modelo_ref": "P1200D",
+              "zona": "frio"
+            },
+            {
+              "tipo": "puerta_camara",
+              "modelo_ref": "P0950",
+              "zona": "frio"
+            },
+            {
+              "tipo": "lavavajillas_capota",
+              "modelo_ref": "GS-83",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "puerta_camara",
+              "modelo_ref": "P0850",
+              "zona": "frio"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "puerta_camara",
+              "modelo_ref": "P1200D",
+              "zona": "frio"
+            },
+            {
+              "tipo": "puerta_camara",
+              "modelo_ref": "P0950",
+              "zona": "frio"
+            },
+            {
+              "tipo": "lavavajillas_capota",
+              "modelo_ref": "GS-83",
+              "zona": "lavado"
+            }
+          ],
+          "n_equipos": 12,
+          "descripcion": "frio (puerta_camara, camara_frigorifica, lavavajillas_capota)"
+        },
+        "west": {
+          "zona_principal": "lavado",
+          "equipos": [
+            {
+              "tipo": "mesa_salida",
+              "modelo_ref": "SALIDA_700",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "prelavado",
+              "modelo_ref": "PRELAVADO_700",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "mesa_salida",
+              "modelo_ref": "SALIDA_700",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "prelavado",
+              "modelo_ref": "PRELAVADO_700",
+              "zona": "lavado"
+            }
+          ],
+          "n_equipos": 4,
+          "descripcion": "lavado (mesa_salida, prelavado)"
+        }
+      },
+      "patron_resumen": "Pared east: frio (12 equipos). Pared north: frio (23 equipos). Pared south: coccion (16 equipos). Pared west: lavado (4 equipos)."
+    },
+    {
+      "id": "hotel_punta_umbria",
+      "nombre": "HOTEL PUNTA UMBRIA",
+      "tipo_negocio": "hotel",
+      "calidad": "media",
+      "cocina": {
+        "width_mm": 19031,
+        "depth_mm": 4871,
+        "area_m2": 92.7,
+        "aspect_ratio": 3.91,
+        "dominant_angle": 0.0,
+        "n_paredes_usadas": 4,
+        "paredes_usadas": [
+          "east",
+          "north",
+          "south",
+          "west"
+        ]
+      },
+      "equipos_total": 75,
+      "equipos_por_zona": {
+        "frio": 37,
+        "preparacion": 8,
+        "lavado": 12,
+        "coccion": 15,
+        "horno": 3
+      },
+      "distribucion_paredes": {
+        "north": {
+          "zona_principal": "frio",
+          "equipos": [
+            {
+              "tipo": "vitrina_fria",
+              "modelo_ref": "CV5-42",
+              "zona": "frio"
+            },
+            {
+              "tipo": "vitrina_fria",
+              "modelo_ref": "CV5-42",
+              "zona": "frio"
+            },
+            {
+              "tipo": "vitrina_fria",
+              "modelo_ref": "CV5-42",
+              "zona": "frio"
+            },
+            {
+              "tipo": "vitrina_fria",
+              "modelo_ref": "CV5-42",
+              "zona": "frio"
+            },
+            {
+              "tipo": "vitrina_fria",
+              "modelo_ref": "CV5-42",
+              "zona": "frio"
+            },
+            {
+              "tipo": "vitrina_fria",
+              "modelo_ref": "CV5-42",
+              "zona": "frio"
+            },
+            {
+              "tipo": "vitrina_fria",
+              "modelo_ref": "CV5-42",
+              "zona": "frio"
+            },
+            {
+              "tipo": "vitrina_fria",
+              "modelo_ref": "CV5-42",
+              "zona": "frio"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "vitrina_fria",
+              "modelo_ref": "CV5-42",
+              "zona": "frio"
+            },
+            {
+              "tipo": "armario_bajo",
+              "modelo_ref": "PAB0850",
+              "zona": "frio"
+            },
+            {
+              "tipo": "vitrina_fria",
+              "modelo_ref": "CV5-42",
+              "zona": "frio"
+            },
+            {
+              "tipo": "fregadero_industrial",
+              "modelo_ref": "PLONGE_1800",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "lavavajillas_capota",
+              "modelo_ref": "GSP-45",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "soporte_mural",
+              "modelo_ref": "SMPS-150",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "tostadora",
+              "modelo_ref": "TPAN-T12",
+              "zona": "coccion"
+            }
+          ],
+          "n_equipos": 21,
+          "descripcion": "frio (vitrina_fria, camara_frigorifica, armario_bajo, fregadero_industrial)"
+        },
+        "south": {
+          "zona_principal": "frio",
+          "equipos": [
+            {
+              "tipo": "puerta_camara",
+              "modelo_ref": "P0950",
+              "zona": "frio"
+            },
+            {
+              "tipo": "puerta_camara",
+              "modelo_ref": "P0950",
+              "zona": "frio"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "soporte_mural",
+              "modelo_ref": "SMPG-180",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "puerta_camara",
+              "modelo_ref": "P0950",
+              "zona": "frio"
+            },
+            {
+              "tipo": "soporte_mural",
+              "modelo_ref": "SMPG-180",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "microondas",
+              "modelo_ref": "QUICK",
+              "zona": "coccion"
+            }
+          ],
+          "n_equipos": 8,
+          "descripcion": "frio (puerta_camara, camara_frigorifica, soporte_mural, microondas)"
+        },
+        "east": {
+          "zona_principal": "frio",
+          "equipos": [
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "puerta_camara",
+              "modelo_ref": "P0950",
+              "zona": "frio"
+            },
+            {
+              "tipo": "soporte_mural",
+              "modelo_ref": "SMPG-180",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "puerta_camara",
+              "modelo_ref": "P1200D",
+              "zona": "frio"
+            },
+            {
+              "tipo": "puerta_camara",
+              "modelo_ref": "P1200D",
+              "zona": "frio"
+            },
+            {
+              "tipo": "armario_bajo",
+              "modelo_ref": "PAB0850",
+              "zona": "frio"
+            },
+            {
+              "tipo": "prelavado",
+              "modelo_ref": "PRELAVADO_1600_IZQDA",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "mesa_salida",
+              "modelo_ref": "SALIDA_1100",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "lavavajillas_capota",
+              "modelo_ref": "GS-83",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "puerta_camara",
+              "modelo_ref": "P0950",
+              "zona": "frio"
+            },
+            {
+              "tipo": "contenedor",
+              "modelo_ref": "CUBOVERDE",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "contenedor",
+              "modelo_ref": "CUBOVERDE",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "contenedor",
+              "modelo_ref": "CUBOVERDE",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "armario_bajo",
+              "modelo_ref": "PAB0850",
+              "zona": "frio"
+            },
+            {
+              "tipo": "cocina_gas",
+              "modelo_ref": "CG-940-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "marmita",
+              "modelo_ref": "MN-49-PLANTAN",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fry_top_gas",
+              "modelo_ref": "FTG-92-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "marmita",
+              "modelo_ref": "MN-49-PLANTAN",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fogon_gas",
+              "modelo_ref": "FG-159T-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "horno_rational",
+              "modelo_ref": "MASTER 20 GN 2-1",
+              "zona": "horno"
+            },
+            {
+              "tipo": "horno_rational",
+              "modelo_ref": "MASTER 10 GN 2-1",
+              "zona": "horno"
+            },
+            {
+              "tipo": "marmita_gas",
+              "modelo_ref": "MG-9150",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "botellero",
+              "modelo_ref": "B-1500",
+              "zona": "frio"
+            },
+            {
+              "tipo": "lavavajillas",
+              "modelo_ref": "LAVAVAJILLAS",
+              "zona": "lavado"
+            }
+          ],
+          "n_equipos": 24,
+          "descripcion": "frio (camara_frigorifica, puerta_camara, soporte_mural, armario_bajo)"
+        },
+        "west": {
+          "zona_principal": "frio",
+          "equipos": [
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "soporte_mural",
+              "modelo_ref": "SMPG-180",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "puerta_camara",
+              "modelo_ref": "P1200D",
+              "zona": "frio"
+            },
+            {
+              "tipo": "soporte_mural",
+              "modelo_ref": "SMPG-135",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "cortadora",
+              "modelo_ref": "S-250",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "picadora",
+              "modelo_ref": "PICADORA_CARNE",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "prelavado",
+              "modelo_ref": "PRELAVADO_1600_DCHA_ARO",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "portaplatos",
+              "modelo_ref": "PORTAPLA",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "portaplatos",
+              "modelo_ref": "PORTAPLA",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "puerta_camara",
+              "modelo_ref": "P0950",
+              "zona": "frio"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "cocina_gas",
+              "modelo_ref": "CG-940-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "marmita",
+              "modelo_ref": "MN-49-PLANTAN",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fry_top_gas",
+              "modelo_ref": "FTG-92-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "marmita",
+              "modelo_ref": "MN-49-PLANTAN",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fogon_gas",
+              "modelo_ref": "FG-159T-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "abatidor",
+              "modelo_ref": "ABATIDOR 10 GN",
+              "zona": "horno"
+            },
+            {
+              "tipo": "soporte_bajo",
+              "modelo_ref": "SB-980-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "freidora",
+              "modelo_ref": "F-127_11",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "maquina_hielo",
+              "modelo_ref": "F_HIELO",
+              "zona": "frio"
+            }
+          ],
+          "n_equipos": 22,
+          "descripcion": "frio (camara_frigorifica, soporte_mural, puerta_camara, cortadora)"
+        }
+      },
+      "patron_resumen": "Pared east: frio (24 equipos). Pared north: frio (21 equipos). Pared south: frio (8 equipos). Pared west: frio (22 equipos)."
+    },
+    {
+      "id": "chino_salazar",
+      "nombre": "CHINO SALAZAR",
+      "tipo_negocio": "restaurante",
+      "calidad": "baja",
+      "cocina": {
+        "width_mm": 129999,
+        "depth_mm": 200000,
+        "area_m2": 25999.7,
+        "aspect_ratio": 1.54,
+        "dominant_angle": 0.0,
+        "n_paredes_usadas": 4,
+        "paredes_usadas": [
+          "east",
+          "north",
+          "south",
+          "west"
+        ]
+      },
+      "equipos_total": 51,
+      "equipos_por_zona": {
+        "preparacion": 24,
+        "lavado": 3,
+        "coccion": 19,
+        "frio": 5
+      },
+      "distribucion_paredes": {
+        "north": {
+          "zona_principal": "preparacion",
+          "equipos": [
+            {
+              "tipo": "mesa_trabajo",
+              "modelo_ref": "MESA_2000",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "mesa_trabajo",
+              "modelo_ref": "MESA_2000",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "mesa_trabajo",
+              "modelo_ref": "MESA_2000",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "mesa_trabajo",
+              "modelo_ref": "MESA_2000",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "mesa_trabajo",
+              "modelo_ref": "MESA_2000",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "mesa_trabajo",
+              "modelo_ref": "MESA_2000",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "mesa_trabajo",
+              "modelo_ref": "MESA_2000",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "marmita",
+              "modelo_ref": "MN-49-PLANTAN",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fry_top_gas",
+              "modelo_ref": "FTG-92-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fry_top_gas",
+              "modelo_ref": "FTG-92-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "marmita",
+              "modelo_ref": "MN-49-PLANTAN",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "freidora",
+              "modelo_ref": "FRE 90-2 EV",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "freidora",
+              "modelo_ref": "FRE 90-2 EV",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "freidora",
+              "modelo_ref": "FRE 90-2 EV",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "marmita",
+              "modelo_ref": "MN-49-PLANTAN",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "marmita",
+              "modelo_ref": "MN-49-PLANTAN",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "marmita",
+              "modelo_ref": "MN-49-PLANTAN",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "marmita",
+              "modelo_ref": "MN-49-PLANTAN",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "mesa_trabajo",
+              "modelo_ref": "MESA_1500",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "mesa_trabajo",
+              "modelo_ref": "MESA_2000",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "mesa_trabajo",
+              "modelo_ref": "MESA_2000",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "mesa_trabajo",
+              "modelo_ref": "MESA_2000",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "marmita",
+              "modelo_ref": "MN-49-PLANTAN",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fry_top_gas",
+              "modelo_ref": "FTG-92-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fry_top_gas",
+              "modelo_ref": "FTG-92-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "mesa_trabajo",
+              "modelo_ref": "MESA_2000",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "mesa_trabajo",
+              "modelo_ref": "MESA_2000",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "mesa_trabajo",
+              "modelo_ref": "MESA_2000",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "mesa_trabajo",
+              "modelo_ref": "MESA_2000",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "mesa_trabajo",
+              "modelo_ref": "MESA_2000",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "mesa_trabajo",
+              "modelo_ref": "MESA_2000",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "mesa_trabajo",
+              "modelo_ref": "MESA_2000",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "mesa_trabajo",
+              "modelo_ref": "MESA_2000",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "mesa_trabajo",
+              "modelo_ref": "MESA_2000",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "prelavado",
+              "modelo_ref": "PRELAVADO_1600_DCHA",
+              "zona": "lavado"
+            }
+          ],
+          "n_equipos": 35,
+          "descripcion": "preparacion (mesa_trabajo, marmita, fry_top_gas, freidora)"
+        },
+        "south": {
+          "zona_principal": "frio",
+          "equipos": [
+            {
+              "tipo": "mesa_trabajo",
+              "modelo_ref": "MESA_2000",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "fregadero_industrial",
+              "modelo_ref": "PLONGE_1800",
+              "zona": "lavado"
+            }
+          ],
+          "n_equipos": 4,
+          "descripcion": "frio (mesa_trabajo, camara_frigorifica, fregadero_industrial)"
+        },
+        "east": {
+          "zona_principal": "coccion",
+          "equipos": [
+            {
+              "tipo": "prelavado",
+              "modelo_ref": "PRELAVADO_1600_IZQDA",
+              "zona": "lavado"
+            },
+            {
+              "tipo": "soporte_mural",
+              "modelo_ref": "SMPG-135",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "fry_top_gas",
+              "modelo_ref": "FTG-92-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fry_top_gas",
+              "modelo_ref": "FTG-92-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            }
+          ],
+          "n_equipos": 5,
+          "descripcion": "coccion (prelavado, soporte_mural, fry_top_gas, camara_frigorifica)"
+        },
+        "west": {
+          "zona_principal": "coccion",
+          "equipos": [
+            {
+              "tipo": "mesa_trabajo",
+              "modelo_ref": "MESA_2500",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "cocina_gas",
+              "modelo_ref": "CG-940-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "soporte_mural",
+              "modelo_ref": "SMPG-135",
+              "zona": "preparacion"
+            },
+            {
+              "tipo": "fogon_gas",
+              "modelo_ref": "FG-309T-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "fogon_gas",
+              "modelo_ref": "FG-309T-PLANTA",
+              "zona": "coccion"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            },
+            {
+              "tipo": "camara_frigorifica",
+              "modelo_ref": "PCAM900",
+              "zona": "frio"
+            }
+          ],
+          "n_equipos": 7,
+          "descripcion": "coccion (mesa_trabajo, cocina_gas, soporte_mural, fogon_gas)"
+        }
+      },
+      "patron_resumen": "Pared east: coccion (5 equipos). Pared north: preparacion (35 equipos). Pared south: frio (4 equipos). Pared west: coccion (7 equipos)."
+    }
+  ]
+}

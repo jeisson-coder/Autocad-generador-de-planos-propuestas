@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RepagasConcept — Proyectamos tu cocina</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- SheetJS para lectura de archivos Excel -->
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+  <!-- ═══ Login Screen ═══ -->
+  <div id="loginScreen" class="login-overlay">
+    <div class="login-box">
+      <div class="login-logo">
+        <img src="logo.png" alt="RepagasConcept">
+      </div>
+      <h2>Proyectamos tu cocina</h2>
+      <p class="login-subtitle">Introduce tus credenciales para continuar</p>
+      <div class="login-field">
+        <label for="loginUser">Usuario</label>
+        <input type="text" id="loginUser" placeholder="usuario" autocomplete="username" />
+      </div>
+      <div class="login-field">
+        <label for="loginPass">Contrasena</label>
+        <input type="password" id="loginPass" placeholder="contrasena" autocomplete="current-password" />
+      </div>
+      <p id="loginError" class="login-error" style="display:none">Usuario o contrasena incorrectos</p>
+      <button type="button" id="btnLogin" class="btn btn-login">Entrar</button>
+    </div>
+  </div>
+
+  <div class="container" id="appContainer" style="display:none">
+    <header class="header">
+      <div class="logo-container">
+        <img src="logo-white.png" alt="RepagasConcept">
+      </div>
+      <p class="subtitle">Proyectamos tu cocina</p>
+    </header>
+
+    <!-- Import JSON / Excel -->
+    <div class="import-bar">
+      <input type="file" id="importJsonFile" accept=".json" style="display:none" />
+      <button type="button" class="btn btn-import" id="btnImportJson" title="Cargar un archivo .json para rellenar el formulario automaticamente">Importar JSON</button>
+      <input type="file" id="importExcelFile" accept=".xlsx,.xls" style="display:none" />
+      <button type="button" class="btn btn-import btn-import-excel" id="btnImportExcel" title="Importar lista de equipos desde Excel (.xlsx) — columna B: nombre, columna C: unidades">Importar Excel</button>
+      <span id="importStatus" class="import-status"></span>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <div class="step-indicators" id="stepIndicators"></div>
+
+    <form id="formulario" novalidate>
+
+      <!-- ════════════════ PASO 1: Proyecto ════════════════ -->
+      <section class="step active" data-step="1">
+        <h2>Información del Proyecto</h2>
+        <p class="step-desc">Datos generales del establecimiento.</p>
+
+        <div class="field">
+          <label for="nombre_proyecto">Nombre del proyecto</label>
+          <input type="text" id="nombre_proyecto" placeholder="Ej: RTE Argentino, Bar La Esquina..." />
+        </div>
+
+        <div class="row-2">
+          <div class="field">
+            <label for="tipo_negocio">Tipo de negocio <span class="req">*</span></label>
+            <select id="tipo_negocio" required>
+              <option value="">— Seleccionar —</option>
+              <option value="restaurante">Restaurante</option>
+              <option value="restaurante_tradicional">Restaurante Tradicional</option>
+              <option value="taperia">Tapería / Bar de tapas</option>
+              <option value="fast_food">Fast food</option>
+              <option value="pizzeria">Pizzería</option>
+              <option value="hotel">Hotel</option>
+              <option value="hospital">Hospital / Residencia</option>
+              <option value="catering">Catering</option>
+              <option value="cafeteria">Cafetería</option>
+              <option value="food_truck">Food Truck</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="concepto">Concepto</label>
+            <input type="text" id="concepto" placeholder="Ej: parrilla argentina, cocina mediterránea..." />
+          </div>
+        </div>
+
+        <div class="row-2">
+          <div class="field">
+            <label for="comensales">Comensales por servicio <span class="req">*</span></label>
+            <input type="number" id="comensales" min="1" max="5000" required placeholder="Ej: 60" />
+          </div>
+          <div class="field">
+            <label for="superficie_m2">Superficie disponible (m²)</label>
+            <input type="number" id="superficie_m2" min="1" step="0.1" placeholder="Ej: 45" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="presupuesto_max">Límite de presupuesto (EUR)</label>
+          <input type="number" id="presupuesto_max" min="0" step="100" placeholder="Dejar vacío si no hay límite" />
+        </div>
+      </section>
+
+      <!-- ════════════════ PASO 2: Parte Técnica ════════════════ -->
+      <section class="step" data-step="2">
+        <h2>Parte Técnica</h2>
+        <p class="step-desc">Estado actual del local y la cocina.</p>
+
+        <div class="field">
+          <label>¿Hay que diseñar la cocina desde cero o es una renovación? <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-card">
+              <input type="radio" name="tipo_proyecto" value="nuevo" required />
+              <span class="radio-label">Diseño desde cero</span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="tipo_proyecto" value="renovacion" />
+              <span class="radio-label">Renovación</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field conditional" id="field_retirar" style="display:none">
+          <label>Si es renovación, ¿hay que retirar la cocina antigua?</label>
+          <div class="radio-group">
+            <label class="radio-card small"><input type="radio" name="retirar_antigua" value="si" /><span class="radio-label">Sí</span></label>
+            <label class="radio-card small"><input type="radio" name="retirar_antigua" value="no" /><span class="radio-label">No</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>¿Existe plano técnico acotado?</label>
+          <p class="hint">Con dimensiones, grados de esquinas, columnas, puntos de luz, agua, gas, salida de humos, puertas, zonas de pase, basura, office, etc.</p>
+          <div class="radio-group">
+            <label class="radio-card small"><input type="radio" name="tiene_plano" value="si" /><span class="radio-label">Sí, tengo plano</span></label>
+            <label class="radio-card small"><input type="radio" name="tiene_plano" value="no" /><span class="radio-label">No tengo plano</span></label>
+          </div>
+        </div>
+
+        <div class="field conditional" id="field_upload_plano" style="display:none">
+          <label for="archivo_plano">Subir plano (.dwg o .dxf)</label>
+          <div class="file-upload" id="fileUploadZone">
+            <input type="file" id="archivo_plano" accept=".dwg,.dxf" />
+            <div class="file-upload-label">
+              <span class="file-icon">&#128193;</span>
+              <span>Arrastra el archivo aquí o <strong>haz clic para seleccionar</strong></span>
+              <span class="file-formats">Formatos: .dwg, .dxf</span>
+            </div>
+            <div class="file-name" id="fileName"></div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="altura_techo">Altura del suelo al techo (m)</label>
+          <input type="number" id="altura_techo" min="1" max="10" step="0.01" placeholder="Ej: 3.10" />
+        </div>
+
+        <div class="row-2">
+          <div class="field">
+            <label for="material_paredes">Material de las paredes</label>
+            <input type="text" id="material_paredes" placeholder="Ej: azulejo sanitario, acero inoxidable, pintura epoxi" />
+            <span class="hint">Separe con comas si hay varios materiales</span>
+          </div>
+          <div class="field">
+            <label for="material_suelo">Material del suelo</label>
+            <input type="text" id="material_suelo" placeholder="Ej: baldosa industrial antideslizante" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>¿Hay desniveles en el suelo?</label>
+          <div class="radio-group">
+            <label class="radio-card small"><input type="radio" name="desniveles" value="si" /><span class="radio-label">Sí</span></label>
+            <label class="radio-card small"><input type="radio" name="desniveles" value="no" /><span class="radio-label">No</span></label>
+          </div>
+        </div>
+
+        <div class="field conditional" id="field_desnivel_detalle" style="display:none">
+          <label for="desnivel_detalle">Detalle del desnivel</label>
+          <input type="text" id="desnivel_detalle" placeholder="Ej: pendiente 3.95%, escalón de 10cm" />
+        </div>
+
+        <div class="field">
+          <label>Dimensiones de accesos (en metros)</label>
+          <p class="hint">Si no están incluidas en el plano</p>
+          <div class="row-3">
+            <div class="field">
+              <label for="acceso_principal">Puerta principal (m)</label>
+              <input type="number" id="acceso_principal" min="0" step="0.01" placeholder="Ej: 1.40" />
+            </div>
+            <div class="field">
+              <label for="acceso_cocina">Puerta cocina (m)</label>
+              <input type="number" id="acceso_cocina" min="0" step="0.01" placeholder="Ej: 1.10" />
+            </div>
+            <div class="field">
+              <label for="acceso_almacen">Puerta almacén (m)</label>
+              <input type="number" id="acceso_almacen" min="0" step="0.01" placeholder="Ej: 0.90" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════ PASO 3: Energía ════════════════ -->
+      <section class="step" data-step="3">
+        <h2>Energía e Instalaciones</h2>
+        <p class="step-desc">Datos sobre la instalación energética disponible.</p>
+
+        <div class="field">
+          <label>Fuente de energía principal <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-card"><input type="radio" name="energia" value="gas" required /><span class="radio-label">Gas</span></label>
+            <label class="radio-card"><input type="radio" name="energia" value="electrico" /><span class="radio-label">Eléctrico</span></label>
+            <label class="radio-card"><input type="radio" name="energia" value="mixto" /><span class="radio-label">Mixto (gas + eléctrico)</span></label>
+          </div>
+        </div>
+
+        <div class="field conditional" id="field_tipo_gas" style="display:none">
+          <label>Tipo de gas</label>
+          <div class="radio-group">
+            <label class="radio-card small"><input type="radio" name="tipo_gas" value="gas_natural" /><span class="radio-label">Gas natural</span></label>
+            <label class="radio-card small"><input type="radio" name="tipo_gas" value="propano" /><span class="radio-label">Propano</span></label>
+          </div>
+        </div>
+
+        <div class="field conditional" id="field_caudal_gas" style="display:none">
+          <label for="caudal_gas">Caudal de gas disponible</label>
+          <input type="text" id="caudal_gas" placeholder="Ej: 10 m³/h" />
+        </div>
+
+        <div class="field conditional" id="field_tipo_electrico" style="display:none">
+          <label>Tipo de instalación eléctrica</label>
+          <div class="radio-group">
+            <label class="radio-card small"><input type="radio" name="tipo_electrico" value="trifasico" /><span class="radio-label">Trifásico</span></label>
+            <label class="radio-card small"><input type="radio" name="tipo_electrico" value="monofasico" /><span class="radio-label">Monofásico</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="potencia_kw">Potencia contratada en el local (kW)</label>
+          <input type="number" id="potencia_kw" min="1" step="0.1" placeholder="Ej: 50" />
+        </div>
+      </section>
+
+      <!-- ════════════════ PASO 4: Equipamiento ════════════════ -->
+      <section class="step" data-step="4">
+        <h2>Necesidades de Equipamiento</h2>
+        <p class="step-desc">¿Qué necesidades de aparatos tiene? Señale expresamente lo que necesita.</p>
+
+        <div class="field">
+          <label>Áreas que necesita equipar</label>
+          <div class="checkbox-group">
+            <label class="checkbox-card"><input type="checkbox" name="area_coccion" value="coccion" checked /><span class="checkbox-label">Cocción</span></label>
+            <label class="checkbox-card"><input type="checkbox" name="area_refrigeracion" value="refrigeracion" /><span class="checkbox-label">Refrigeración</span></label>
+            <label class="checkbox-card"><input type="checkbox" name="area_lavado" value="lavado" /><span class="checkbox-label">Lavado</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="equipos_coccion">Equipos de cocción</label>
+          <textarea id="equipos_coccion" rows="2" placeholder="Ej: cocina gas 6 fuegos, freidora industrial, parrilla brasa, fry top, horno gastronómico..."></textarea>
+          <span class="hint">Separe con comas</span>
+        </div>
+
+        <div class="field">
+          <label for="equipos_refrigeracion">Equipos de refrigeración</label>
+          <textarea id="equipos_refrigeracion" rows="2" placeholder="Ej: mesa refrigerada, armario congelador, cámara panelable, botellero..."></textarea>
+          <span class="hint">Separe con comas</span>
+        </div>
+
+        <div class="field">
+          <label for="equipos_lavado">Equipos de lavado</label>
+          <textarea id="equipos_lavado" rows="2" placeholder="Ej: lavavajillas industrial, mesa desbarace, mesa prelavado, mesa salida..."></textarea>
+          <span class="hint">Separe con comas</span>
+        </div>
+
+        <div class="field">
+          <label for="equipos_otros">Otros equipos (campana, mobiliario, etc.)</label>
+          <textarea id="equipos_otros" rows="2" placeholder="Ej: campana extractora, encimeras inox, vitrina refrigerada, estanterías almacén..."></textarea>
+          <span class="hint">Separe con comas</span>
+        </div>
+
+        <div class="field">
+          <label for="preferencias_colocacion">Preferencia de colocación de aparatos</label>
+          <textarea id="preferencias_colocacion" rows="2" placeholder="Ej: parrilla cerca del pase, horno junto a zona fría..."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="marcas_preferidas">Marcas preferidas</label>
+          <input type="text" id="marcas_preferidas" placeholder="Ej: repagas, mychef (separar con comas)" />
+        </div>
+      </section>
+
+      <!-- ════════════════ PASO 5: Selección Manual de Equipos ════════════════ -->
+      <section class="step" data-step="5">
+        <h2>Seleccion Manual de Equipos</h2>
+        <p class="step-desc">Opcional: especifique exactamente los aparatos que desea incluir y la IA se encargara de colocarlos en el plano.</p>
+        <div id="catalogoStatus" class="catalogo-status" style="display:none"></div>
+
+        <div class="equipo-zone">
+          <h3>Coccion</h3>
+          <div class="equipo-list" id="equiposCoccionList"></div>
+          <button type="button" class="btn btn-add-equipo" data-zone="coccion">+ Anadir equipo de coccion</button>
+        </div>
+
+        <div class="equipo-zone">
+          <h3>Refrigeracion</h3>
+          <div class="equipo-list" id="equiposRefrigeracionList"></div>
+          <button type="button" class="btn btn-add-equipo" data-zone="refrigeracion">+ Anadir equipo de refrigeracion</button>
+        </div>
+
+        <div class="equipo-zone">
+          <h3>Lavado</h3>
+          <div class="equipo-list" id="equiposLavadoList"></div>
+          <button type="button" class="btn btn-add-equipo" data-zone="lavado">+ Anadir equipo de lavado</button>
+        </div>
+
+        <div class="equipo-zone">
+          <h3>Horno</h3>
+          <div class="equipo-list" id="equiposHornoList"></div>
+          <button type="button" class="btn btn-add-equipo" data-zone="horno">+ Anadir equipo de horno</button>
+        </div>
+
+        <div class="field" style="margin-top: 20px;">
+          <p class="hint">Si deja esta seccion vacia, la IA elegira los equipos automaticamente basandose en la informacion de los pasos anteriores.</p>
+        </div>
+      </section>
+
+      <!-- ════════════════ PASO 6: Identidad Gastronómica ════════════════ -->
+      <section class="step" data-step="6">
+        <h2>Identidad Gastronómica</h2>
+        <p class="step-desc">Perfil culinario del negocio.</p>
+
+        <div class="row-2">
+          <div class="field">
+            <label for="identidad">Identidad de la cocina</label>
+            <select id="identidad">
+              <option value="">— Seleccionar —</option>
+              <option value="tradicional">Tradicional</option>
+              <option value="creativa">Creativa</option>
+              <option value="alta_cocina">Alta cocina</option>
+              <option value="fusion">Fusión</option>
+              <option value="mediterranea">Mediterránea</option>
+              <option value="asiatica">Asiática</option>
+              <option value="otra">Otra</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="tipo_cocina">Tipo de cocina</label>
+            <input type="text" id="tipo_cocina" placeholder="Ej: parrilla, japonesa, mexicana..." />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Estructura del menú</label>
+          <div class="checkbox-group">
+            <label class="checkbox-card small"><input type="checkbox" name="menu" value="carta" /><span class="checkbox-label">Carta</span></label>
+            <label class="checkbox-card small"><input type="checkbox" name="menu" value="menu_del_dia" /><span class="checkbox-label">Menú del día</span></label>
+            <label class="checkbox-card small"><input type="checkbox" name="menu" value="buffet" /><span class="checkbox-label">Buffet</span></label>
+            <label class="checkbox-card small"><input type="checkbox" name="menu" value="degustacion" /><span class="checkbox-label">Degustación</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="cantidad_platos">Cantidad de platos que ofrece</label>
+          <input type="number" id="cantidad_platos" min="1" max="200" placeholder="Ej: 35" />
+        </div>
+
+        <div class="field">
+          <label>Trabaja con ingredientes frescos</label>
+          <div class="checkbox-group">
+            <label class="checkbox-card small"><input type="checkbox" name="fresco" value="carnes" /><span class="checkbox-label">Carnes</span></label>
+            <label class="checkbox-card small"><input type="checkbox" name="fresco" value="pescados" /><span class="checkbox-label">Pescados</span></label>
+            <label class="checkbox-card small"><input type="checkbox" name="fresco" value="verduras" /><span class="checkbox-label">Verduras</span></label>
+            <label class="checkbox-card small"><input type="checkbox" name="fresco" value="mariscos" /><span class="checkbox-label">Mariscos</span></label>
+            <label class="checkbox-card small"><input type="checkbox" name="fresco" value="huevos" /><span class="checkbox-label">Huevos</span></label>
+            <label class="checkbox-card small"><input type="checkbox" name="fresco" value="embutidos" /><span class="checkbox-label">Embutidos</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Trabaja con congelados</label>
+          <div class="checkbox-group">
+            <label class="checkbox-card small"><input type="checkbox" name="congelado" value="patatas" /><span class="checkbox-label">Patatas</span></label>
+            <label class="checkbox-card small"><input type="checkbox" name="congelado" value="rebozados" /><span class="checkbox-label">Rebozados</span></label>
+            <label class="checkbox-card small"><input type="checkbox" name="congelado" value="verduras" /><span class="checkbox-label">Verduras</span></label>
+            <label class="checkbox-card small"><input type="checkbox" name="congelado" value="mariscos" /><span class="checkbox-label">Mariscos</span></label>
+            <label class="checkbox-card small"><input type="checkbox" name="congelado" value="carnes" /><span class="checkbox-label">Carnes</span></label>
+            <label class="checkbox-card small"><input type="checkbox" name="congelado" value="postres" /><span class="checkbox-label">Postres</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="cuarta_gama">Cuarta Gama (pelados, cortados, envasados)</label>
+          <input type="text" id="cuarta_gama" placeholder="Ej: ensaladas lavadas, verduras cortadas (separar con comas)" />
+        </div>
+
+        <div class="field">
+          <label for="quinta_gama">Quinta Gama (listos para calentar)</label>
+          <input type="text" id="quinta_gama" placeholder="Ej: fondos cocina, salsas base (separar con comas)" />
+        </div>
+      </section>
+
+      <!-- ════════════════ PASO 7: Lavado ════════════════ -->
+      <section class="step" data-step="7">
+        <h2>Lavado — Vajilla y Utensilios</h2>
+        <p class="step-desc">Detalle de vajilla utilizada para el servicio.</p>
+
+        <div id="lavado_no_necesita" class="info-box" style="display:none">
+          <p>No ha indicado que necesite zona de lavado. Si lo necesita, vuelva al paso 4 y seleccione "Lavado".</p>
+        </div>
+
+        <div id="lavado_fields">
+          <div class="row-3">
+            <div class="field">
+              <label for="lavado_platos">Platos</label>
+              <input type="number" id="lavado_platos" min="0" placeholder="Ej: 250" />
+            </div>
+            <div class="field">
+              <label for="lavado_vasos">Vasos</label>
+              <input type="number" id="lavado_vasos" min="0" placeholder="Ej: 200" />
+            </div>
+            <div class="field">
+              <label for="lavado_copas">Copas</label>
+              <input type="number" id="lavado_copas" min="0" placeholder="Ej: 180" />
+            </div>
+          </div>
+
+          <div class="row-3">
+            <div class="field">
+              <label for="lavado_cubiertos">Cubiertos</label>
+              <input type="number" id="lavado_cubiertos" min="0" placeholder="Ej: 350" />
+            </div>
+            <div class="field">
+              <label for="lavado_tazas">Tazas</label>
+              <input type="number" id="lavado_tazas" min="0" placeholder="Ej: 100" />
+            </div>
+            <div class="field">
+              <label for="lavado_otros">Otros utensilios</label>
+              <input type="text" id="lavado_otros" placeholder="Ollas, sartenes, bandejas GN..." />
+              <span class="hint">Separe con comas</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Consideraciones especiales</label>
+            <div class="checkbox-group">
+              <label class="checkbox-card small"><input type="checkbox" name="lavado_consid" value="desagues" /><span class="checkbox-label">Desagües</span></label>
+              <label class="checkbox-card small"><input type="checkbox" name="lavado_consid" value="trampas_grasas" /><span class="checkbox-label">Trampas de grasas</span></label>
+              <label class="checkbox-card small"><input type="checkbox" name="lavado_consid" value="ventilacion" /><span class="checkbox-label">Ventilación</span></label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════ PASO 8: Refrigeración ════════════════ -->
+      <section class="step" data-step="8">
+        <h2>Refrigeración — Producto que Almacena</h2>
+        <p class="step-desc">Detalle por gamas de los productos que almacena.</p>
+
+        <div id="refri_no_necesita" class="info-box" style="display:none">
+          <p>No ha indicado que necesite zona de refrigeración. Si lo necesita, vuelva al paso 4 y seleccione "Refrigeración".</p>
+        </div>
+
+        <div id="refri_fields">
+          <h3>1ª Gama — Producto fresco</h3>
+          <div class="row-2">
+            <div class="field">
+              <label for="g1_productos">Productos</label>
+              <input type="text" id="g1_productos" placeholder="Ej: carne vacuno, verduras, pollo (comas)" />
+            </div>
+            <div class="field">
+              <label for="g1_kg">Kilos aproximados</label>
+              <input type="number" id="g1_kg" min="0" step="0.1" placeholder="Ej: 150" />
+            </div>
+          </div>
+
+          <h3>2ª Gama — Conservas</h3>
+          <div class="row-2">
+            <div class="field">
+              <label for="g2_productos">Productos</label>
+              <input type="text" id="g2_productos" placeholder="Ej: conservas, tomate, legumbres (comas)" />
+            </div>
+            <div class="field">
+              <label>¿Necesita estanterías?</label>
+              <div class="radio-group">
+                <label class="radio-card small"><input type="radio" name="g2_estanterias" value="si" /><span class="radio-label">Sí</span></label>
+                <label class="radio-card small"><input type="radio" name="g2_estanterias" value="no" /><span class="radio-label">No</span></label>
+              </div>
+            </div>
+          </div>
+
+          <h3>3ª Gama — Congelados</h3>
+          <div class="row-2">
+            <div class="field">
+              <label for="g3_productos">Productos</label>
+              <input type="text" id="g3_productos" placeholder="Ej: patatas congeladas, empanadas (comas)" />
+            </div>
+            <div class="field">
+              <label for="g3_kg">Kilos aproximados</label>
+              <input type="number" id="g3_kg" min="0" step="0.1" placeholder="Ej: 60" />
+            </div>
+          </div>
+
+          <h3>4ª Gama — Pelados, cortados, envasados</h3>
+          <div class="row-2">
+            <div class="field">
+              <label for="g4_productos">Productos</label>
+              <input type="text" id="g4_productos" placeholder="Ej: lechuga lavada, verduras cortadas (comas)" />
+            </div>
+            <div class="field">
+              <label for="g4_kg">Kilos aproximados</label>
+              <input type="number" id="g4_kg" min="0" step="0.1" placeholder="Ej: 15" />
+            </div>
+          </div>
+
+          <h3>5ª Gama — Listos para calentar</h3>
+          <div class="field">
+            <label for="g5_productos">Productos</label>
+            <input type="text" id="g5_productos" placeholder="Ej: fondos, salsas (comas)" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════ PASO 9: Personal y Escalabilidad ════════════════ -->
+      <section class="step" data-step="9">
+        <h2>Personal, Escalabilidad y Extras</h2>
+        <p class="step-desc">Equipo de trabajo, planificación a futuro y servicios adicionales.</p>
+
+        <h3>Personal</h3>
+
+        <div class="row-2">
+          <div class="field">
+            <label for="personas_en_cocina">Personas en cocina</label>
+            <input type="number" id="personas_en_cocina" min="1" max="50" placeholder="Ej: 6" />
+          </div>
+          <div class="field">
+            <label for="roles">Roles del equipo</label>
+            <input type="text" id="roles" placeholder="Ej: chef, cocinero, ayudante, lavaplatos (comas)" />
+          </div>
+        </div>
+
+        <h3>Escalabilidad</h3>
+
+        <div class="field">
+          <label>¿Puede aumentar la carta en el futuro?</label>
+          <div class="radio-group">
+            <label class="radio-card small"><input type="radio" name="ampliar_carta" value="si" /><span class="radio-label">Sí</span></label>
+            <label class="radio-card small"><input type="radio" name="ampliar_carta" value="no" /><span class="radio-label">No</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>¿Hay espacio para añadir más equipamiento?</label>
+          <div class="radio-group">
+            <label class="radio-card small"><input type="radio" name="espacio_equipo" value="si" /><span class="radio-label">Sí</span></label>
+            <label class="radio-card small"><input type="radio" name="espacio_equipo" value="no" /><span class="radio-label">No</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>¿La instalación permitiría más potencia o maquinaria?</label>
+          <div class="radio-group">
+            <label class="radio-card small"><input type="radio" name="mas_potencia" value="si" /><span class="radio-label">Sí</span></label>
+            <label class="radio-card small"><input type="radio" name="mas_potencia" value="no" /><span class="radio-label">No</span></label>
+          </div>
+        </div>
+
+        <h3>Formación y Visita</h3>
+
+        <div class="field">
+          <label>¿Quiere recibir formación sobre funcionamiento de aparatos?</label>
+          <div class="radio-group">
+            <label class="radio-card small"><input type="radio" name="formacion" value="si" /><span class="radio-label">Sí</span></label>
+            <label class="radio-card small"><input type="radio" name="formacion" value="no" /><span class="radio-label">No</span></label>
+          </div>
+        </div>
+
+        <div class="field conditional" id="field_equipos_formacion" style="display:none">
+          <label for="equipos_formacion">¿Sobre qué equipos?</label>
+          <input type="text" id="equipos_formacion" placeholder="Ej: horno convección, equipos cocción, mantenimiento (comas)" />
+        </div>
+
+        <div class="field">
+          <label>¿Quiere visitar nuestra fábrica y exposición antes de recibir la propuesta?</label>
+          <div class="radio-group">
+            <label class="radio-card small"><input type="radio" name="visita_fabrica" value="si" /><span class="radio-label">Sí</span></label>
+            <label class="radio-card small"><input type="radio" name="visita_fabrica" value="no" /><span class="radio-label">No</span></label>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════ PASO 10: Resumen y Envío ════════════════ -->
+      <section class="step" data-step="10">
+        <h2>Resumen y Envío</h2>
+        <p class="step-desc">Revise los datos antes de enviar.</p>
+
+        <div id="resumen" class="resumen-box"></div>
+
+        <div class="field">
+          <label for="webhook_url">URL del servidor webhook</label>
+          <input type="url" id="webhook_url" value="http://localhost:8000" placeholder="http://localhost:8000" />
+          <span class="hint">Cambie si el servidor está en otra dirección.</span>
+        </div>
+      </section>
+
+      <!-- ═══ Navegación ═══ -->
+      <div class="nav-buttons">
+        <button type="button" id="btnPrev" class="btn btn-secondary" style="display:none">Anterior</button>
+        <button type="button" id="btnNext" class="btn btn-primary">Siguiente</button>
+        <button type="submit" id="btnSubmit" class="btn btn-success" style="display:none">Generar Propuesta</button>
+      </div>
+    </form>
+
+    <!-- Modal de carga -->
+    <div class="modal-overlay" id="loadingModal" style="display:none">
+      <div class="modal">
+        <div class="spinner"></div>
+        <h3>Generando propuesta...</h3>
+        <p>Esto puede tardar unos segundos. El sistema está consultando la IA y generando el plano.</p>
+      </div>
+    </div>
+
+    <!-- Modal de resultado -->
+    <div class="modal-overlay" id="resultModal" style="display:none">
+      <div class="modal modal-result modal-wide">
+        <div id="resultContent"></div>
+
+        <!-- Seccion de feedback (solo visible tras exito) -->
+        <div id="feedbackSection" style="display:none">
+          <div class="feedback-divider"></div>
+          <h4 class="feedback-title">Comentarios o solicitud de cambios</h4>
+          <p class="feedback-hint">Deja un comentario para el equipo de RepagasConcept: agregar equipos, corregir datos, ajustar el plano, etc. Para cambios inmediatos, modifica el formulario y vuelve a generar.</p>
+          <textarea id="feedbackText" class="feedback-input" rows="3" placeholder="Ej: Necesito una freidora extra, el nombre del proyecto deberia ser..., falta campana extractora..."></textarea>
+          <div class="feedback-actions">
+            <button type="button" class="btn btn-primary" id="btnSendFeedback">Enviar solicitud</button>
+            <button type="button" class="btn btn-secondary" onclick="document.getElementById('resultModal').style.display='none'">Cerrar</button>
+          </div>
+          <div id="feedbackStatus" class="feedback-status" style="display:none"></div>
+        </div>
+
+        <!-- Boton cerrar (solo visible en error) -->
+        <div id="resultCloseOnly" style="display:none">
+          <button class="btn btn-primary" onclick="document.getElementById('resultModal').style.display='none'">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
