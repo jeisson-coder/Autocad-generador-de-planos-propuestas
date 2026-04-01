@@ -331,7 +331,7 @@ function getManualEquipos(zone) {
 let catalogoLoading = false;
 
 function getBaseUrl() {
-  return "/api";
+  return "https://web-production-0a9ac.up.railway.app";
 }
 
 function updateCatalogoStatus(msg, isError) {
