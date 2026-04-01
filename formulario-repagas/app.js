@@ -31,7 +31,7 @@ async function doLogin() {
   btn.disabled = true;
   btn.textContent = "Verificando...";
   try {
-    const baseUrl = (document.getElementById("webhook_url") || {}).value || "http://localhost:8000";
+    const baseUrl = getBaseUrl();
     const resp = await fetch(baseUrl + "/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -330,9 +330,10 @@ function getManualEquipos(zone) {
 
 let catalogoLoading = false;
 
+const API_URL = "https://web-production-0a9ac.up.railway.app";
+
 function getBaseUrl() {
-  const urlField = document.getElementById("webhook_url");
-  return (urlField ? urlField.value.trim() : "") || "http://localhost:8000";
+  return API_URL;
 }
 
 function updateCatalogoStatus(msg, isError) {
@@ -655,7 +656,7 @@ form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const data = buildFormularioJSON();
-  const baseUrl = getVal("webhook_url") || "http://localhost:8000";
+  const baseUrl = getBaseUrl();
   const fileInput = document.getElementById("archivo_plano");
   const hasFile = fileInput?.files[0];
 
@@ -802,7 +803,7 @@ document.getElementById("btnSendFeedback").addEventListener("click", async () =>
   status.style.display = "";
 
   try {
-    const baseUrl = (document.getElementById("webhook_url") || {}).value || "http://localhost:8000";
+    const baseUrl = getBaseUrl();
     const resp = await fetch(baseUrl + "/feedback", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
